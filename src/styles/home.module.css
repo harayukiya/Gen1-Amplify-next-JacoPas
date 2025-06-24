@@ -1,0 +1,17 @@
+.container {
+  background-color: #f0f0f0;
+  
+  padding: 20px;
+}
+
+.button {
+  background-color: #0070f3;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #005bb5;
+}
