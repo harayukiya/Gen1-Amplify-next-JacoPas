@@ -37,6 +37,9 @@
       "AmplifyAppId": "d1gryotq08xrsv"
     },
     "categories": {
+      "api": {
+        "abicMainOpeAppSyncFetchMail": {}
+      },
       "function": {
         "abicMainOpeLambdaSendMail": {},
         "abicMainOpeAppSyncFetchMail": {}
