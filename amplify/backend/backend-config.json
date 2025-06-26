@@ -18,5 +18,41 @@
       "providerPlugin": "awscloudformation",
       "service": "AppSync"
     }
+  },
+  "function": {
+    "abicMainOpeLambdaSendMail": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "abicMainOpeAppSyncFetchMail"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_abicMainOpeLambdaSendMail_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "abicMainOpeLambdaSendMail"
+        }
+      ]
+    },
+    "AMPLIFY_function_abicMainOpeLambdaSendMail_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "abicMainOpeLambdaSendMail"
+        }
+      ]
+    }
   }
 }

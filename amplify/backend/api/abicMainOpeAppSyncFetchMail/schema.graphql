@@ -169,3 +169,14 @@ type Query {
 	getMail(id_mail: ID!, dt_receive: String!): Mail
 	listMails: [Mail]
 }
+
+input EmailInput {
+	subject: String!
+	body: String!
+	toAddress: String!
+	attachmentsKeys: [String!]
+}
+
+type Mutation {
+	sendEmail(input: EmailInput!): String
+}

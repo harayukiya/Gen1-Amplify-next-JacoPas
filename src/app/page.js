@@ -4,6 +4,8 @@
 import Home from "@pages/Home";
 import ShowOneMail from "@pages/ShowOneMail";
 import ShowAllMail from "@/pages/ShowAllMail";
+import ShowAllMailWithSend from "@/pages/ShowAllMailWithSend";
+import ShowAllMailWithSelectedSend from "@/pages/ShowAllMailWithSelectedSend";
 
 import { useState } from "react";
 
@@ -14,6 +16,8 @@ export default function App() {
         {page === "home" && <Home onNavigate={setPage} />}
         {page === "showOneMail" && <ShowOneMail onNavigate={setPage} />}
         {page === "showAllMail" && <ShowAllMail onNavigate={setPage} />}
+        {page === "showAllMailWithSend" && <ShowAllMailWithSend onNavigate={setPage} />}
+        {page === "showAllMailWithSelectedSend" && <ShowAllMailWithSelectedSend onNavigate={setPage} />}
     </main>
   );
 }
