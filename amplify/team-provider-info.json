@@ -38,7 +38,13 @@
     },
     "categories": {
       "function": {
-        "abicMainOpeLambdaSendMail": {},
+        "abicMainOpeLambdaSendMail": {
+          "deploymentBucketName": "amplify-abicmainopeappgen1ap-main-82453-deployment",
+          "s3Key": "amplify-builds/abicMainOpeLambdaSendMail-5334616869437a64526e-build.zip"
+        },
+        "abicMainOpeAppSyncFetchMail": {}
+      },
+      "api": {
         "abicMainOpeAppSyncFetchMail": {}
       }
     }
