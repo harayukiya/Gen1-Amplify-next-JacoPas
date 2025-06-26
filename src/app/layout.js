@@ -11,10 +11,10 @@ export default function RootLayout({ children }) {
       <body id="content">
         <header className="header">
           <Image
-            src="/next.svg"
-            alt="Next.js logo"
-            width={180}
-            height={38}
+            src="/JacoPas_Support.svg"
+            alt="JacoPas_Support logo"
+            width={20}
+            height={20}
             priority
           />
         </header>

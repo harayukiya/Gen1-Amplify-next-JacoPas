@@ -18,8 +18,28 @@
       "function": {
         "abicMainOpeLambdaSendMail": {
           "deploymentBucketName": "amplify-abicmainopeappgen1ap-dev-beef1-deployment",
-          "s3Key": "amplify-builds/abicMainOpeLambdaSendMail-326552764e6e5377654a-build.zip"
-        }
+          "s3Key": "amplify-builds/abicMainOpeLambdaSendMail-5334616869437a64526e-build.zip"
+        },
+        "abicMainOpeAppSyncFetchMail": {}
+      }
+    }
+  },
+  "main": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-abicmainopeappgen1ap-main-82453-authRole",
+      "UnauthRoleArn": "arn:aws:iam::800082857062:role/amplify-abicmainopeappgen1ap-main-82453-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::800082857062:role/amplify-abicmainopeappgen1ap-main-82453-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-abicmainopeappgen1ap-main-82453-deployment",
+      "UnauthRoleName": "amplify-abicmainopeappgen1ap-main-82453-unauthRole",
+      "StackName": "amplify-abicmainopeappgen1ap-main-82453",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:800082857062:stack/amplify-abicmainopeappgen1ap-main-82453/53144420-524a-11f0-ad30-0a445412414d",
+      "AmplifyAppId": "d1gryotq08xrsv"
+    },
+    "categories": {
+      "function": {
+        "abicMainOpeLambdaSendMail": {},
+        "abicMainOpeAppSyncFetchMail": {}
       }
     }
   }
