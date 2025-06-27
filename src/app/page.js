@@ -11,27 +11,23 @@ import {listMails} from "@graphql/queries";
 export default function HomePage() {
   const [mails, setMails] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [statusFilter, setStatusFilter] = useState(null);
+  const [filter, setFilter] = useState(null);
 
-  const fetchMails = async (filterStatus = null) => {
+  const fetchMails = async () => {
     setLoading(true);
     try {
-      const variables = {
-        limit: 50,
-        ...(filterStatus !== null && {
-          filter: {
-            fg_attachments: { eq: filterStatus }
-          }
-        })
-      };
       const response = await API.graphql({
         query: listMails,
-        variables,
+        variables: {
+          filter,
+          limit: 100
+        },
         authMode: 'apiKey',
       });
 
       const mails = response.data.listMails.items || [];
       setMails(mails);
+      console.log(mails);
     } catch (error) {
       console.error('取得エラー:', error);
     } finally {
@@ -39,17 +35,19 @@ export default function HomePage() {
     }
   };
 
+  //メール取得を行うまた、フィルタを変更した際にもメール取得を行う
   useEffect(() => {
-    fetchMails(statusFilter);
-  }, [statusFilter]);
+    fetchMails();
+  }, [filter]);
 
   return (
     <main>
       <h1>メール一覧</h1>
       <div style={{ marginBottom: '1rem' }}>
-        <button onClick={() => setStatusFilter(null)}>すべて</button>
-        <button onClick={() => setStatusFilter("0")}>添付ファイルなし</button>
-        <button onClick={() => setStatusFilter("1")}>添付ファイル付き</button>
+        <button onClick={() => setFilter(null)}>メールをすべて表示</button>
+        <button onClick={() => setFilter({ fg_attachments: { eq: '0' } })}>添付ファイルなし</button>
+        <button onClick={() => setFilter({ fg_attachments: { eq: '1' } })}>添付ファイル付き</button>
+        <button onClick={() => setFilter({ fg_unzipped: { eq: '1' } })}>zip解凍済み</button>
       </div>
 
       {loading ? <p>読み込み中...</p> : <MailList mails={mails} />}
