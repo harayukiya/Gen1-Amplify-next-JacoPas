@@ -29,9 +29,6 @@ body {
   width: 100vw;
   height: 100vh;
 
-  display: grid;
-  grid-template-rows: 2fr 1fr 13fr 1fr;
-
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #f0f8ff;
   color: #1a1a1a;

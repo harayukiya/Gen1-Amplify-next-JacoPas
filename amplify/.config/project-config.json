@@ -1,6 +1,8 @@
 {
-  "whyContinueWithGen1": "I find the Gen 1 CLI easier to use",
-  "projectName": "abicmainopeappgen1ap",
+  "providers": [
+    "awscloudformation"
+  ],
+  "projectName": "Gen1AmplifyNextJacoP",
   "version": "3.1",
   "frontend": "javascript",
   "javascript": {
@@ -11,8 +13,5 @@
       "BuildCommand": "npm.cmd run-script build",
       "StartCommand": "npm.cmd run-script start"
     }
-  },
-  "providers": [
-    "awscloudformation"
-  ]
+  }
 }

@@ -1,23 +1,42 @@
-"use client";
+'use client';
+//React FW機能定義
+import { useEffect, useState } from 'react';
 
-//ページのインポート
-import Home from "@pages/Home";
-import ShowOneMail from "@pages/ShowOneMail";
-import ShowAllMail from "@/pages/ShowAllMail";
-import ShowAllMailWithSend from "@/pages/ShowAllMailWithSend";
-import ShowAllMailWithSelectedSend from "@/pages/ShowAllMailWithSelectedSend";
+//graphQL APIの機能定義
+import API from "@app/APIConfig";
 
-import { useState } from "react";
+import MailList from "@components/MailList";
+import {listMails} from "@graphql/queries";
 
-export default function App() {
-  const [page, setPage] = useState("home");
+export default function HomePage() {
+    const [mails, setMails] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchMails = async () => {
+        try {
+            const result = await API.graphql({
+                query : listMails,
+                authMode: "apiKey"
+            });
+            console.log("result");
+            console.log(result)
+            setMails(result.data.listMails);
+            console.log("mails : ");
+            console.log(mails);
+        } catch (error) {
+            console.error('メール取得エラー:', error);
+        } finally {
+            setLoading(false);
+        }
+        };
+        fetchMails();
+    }, []);
+
+
   return (
-    <main id="common">
-        {page === "home" && <Home onNavigate={setPage} />}
-        {page === "showOneMail" && <ShowOneMail onNavigate={setPage} />}
-        {page === "showAllMail" && <ShowAllMail onNavigate={setPage} />}
-        {page === "showAllMailWithSend" && <ShowAllMailWithSend onNavigate={setPage} />}
-        {page === "showAllMailWithSelectedSend" && <ShowAllMailWithSelectedSend onNavigate={setPage} />}
+    <main>
+      <MailList mails={mails} />
     </main>
   );
 }
