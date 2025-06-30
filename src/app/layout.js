@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="ja">
       <body id="content">
-        <header className="header">メール管理</header>
+        <header className="page-header">メール管理画面</header>
         {children}
         <footer></footer>
       </body>

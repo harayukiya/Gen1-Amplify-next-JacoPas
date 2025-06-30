@@ -1,6 +1,6 @@
 import MailItem from '@/components/Mail/MailItem';
 
-export default function MailList({ mails }) {
+export default function MailList({ mails, handleSelect }) {
   if (!mails || mails.length === 0) {
     return <div>メールはありません。</div>;
   }
@@ -10,6 +10,7 @@ export default function MailList({ mails }) {
       <table className="scroll-table table-header">
         <thead>
           <tr>
+            <th>送信</th>
             <th>ID</th>
             <th>送信者</th>
             <th>受信者(TO)</th>
@@ -31,7 +32,7 @@ export default function MailList({ mails }) {
         <table className="scroll-table table-body">
           <tbody>
             {mails.map((mail) => (
-              <MailItem key={mail.id_mail} mail={mail} />
+              <MailItem key={mail.id_mail} mail={mail} handleSelect={handleSelect} />
             ))}
           </tbody>
         </table>

@@ -1,6 +1,9 @@
-export default function MailItem({ mail }) {
+export default function MailItem({ mail, handleSelect }) {
   return (
     <tr>
+      <td>
+        <input type="checkbox" onChange={() => handleSelect(mail.id_mail)}/>
+      </td>
       <td>{mail.id_mail}</td>
       <td>{mail.st_fromaddress}</td>
       <td>{mail.st_touser}</td>
@@ -8,7 +11,7 @@ export default function MailItem({ mail }) {
       <td>{mail.st_subject}</td>
       <td>{mail.st_contents}</td>
       <td>{mail.fg_attachments}</td>
-      <td>
+      <td className="show-vertical">
         {mail.fg_attachments === "1" ? (
           Object.entries(JSON.parse(mail.st_attachments)).map(([pdfName, s3url]) => (
             <a key={pdfName} href={s3url} target="_blank">
